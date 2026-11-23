@@ -1013,9 +1013,54 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE DESIGN (DESKTOP, LAPTOP, TABLET, MOBILE)
+       COMPREHENSIVE DYNAMIC RESPONSIVE SYSTEM
+       SUPPORTS: ALL DEVICES (MOBILES, TABLETS, LAPTOPS, DESKTOPS, ULTRAWIDE)
+       AND ALL ASPECT RATIOS (16:9, 16:10, 4:3, 9:16, 21:9)
        ========================================================================== */
+
+    /* 1. Large Displays & Ultrawide (1600px+) */
+    @media (min-width: 1600px) {
+      .top-bar,
+      header,
+      .hero,
+      .services-section,
+      .gallery-section,
+      .quote-section,
+      footer {
+        max-width: 1620px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    /* 2. Laptops & Small Desktops (1081px - 1366px) */
+    @media (max-width: 1280px) {
+      nav ul {
+        gap: 18px;
+      }
+      nav ul li a {
+        font-size: 13.5px;
+      }
+      .quote-nav-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+    }
+
+    /* 3. Tablets in Landscape & Portrait (769px - 1080px) */
     @media (max-width: 1080px) {
+      .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        order: 3;
+      }
+
+      .header-actions {
+        order: 2;
+        gap: 12px;
+      }
+
       nav {
         display: none;
         position: absolute;
@@ -1023,82 +1068,95 @@
         left: 0;
         width: 100%;
         background: var(--white);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        padding: 20px 6%;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        padding: 24px 6%;
+        border-bottom: 2px solid var(--svl-blue);
+        z-index: 1002;
+        order: 4;
       }
 
       nav.active {
         display: block;
+        animation: navSlideDown 0.25s ease-out forwards;
       }
 
       nav ul {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
         align-items: flex-start;
       }
 
-      .hamburger {
+      nav ul li {
+        width: 100%;
+      }
+
+      nav ul li a {
+        font-size: 15px;
+        padding: 10px 0;
         display: block;
+        width: 100%;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
       }
 
       .hero {
-        padding: 70px 6%;
+        padding: 65px 6%;
       }
 
       .hero-text h1 {
-        font-size: 52px;
+        font-size: clamp(38px, 6vw, 54px);
       }
 
       .global-reach-card {
         grid-template-columns: 1fr;
+        gap: 28px;
       }
 
       .quote-grid {
         grid-template-columns: 1fr;
-        gap: 35px;
+        gap: 32px;
       }
     }
 
+    /* 4. Tablets & Phablets (481px - 768px) */
     @media (max-width: 768px) {
       .top-bar {
         flex-direction: column;
         gap: 8px;
         text-align: center;
-        padding: 9px 4%;
+        padding: 8px 4%;
       }
 
       .top-bar .contact-info {
         justify-content: center;
-        gap: 12px;
+        gap: 14px;
       }
 
       .hero {
         padding: 50px 5% 45px 5%;
-        min-height: 80vh;
-        align-items: center;
+        min-height: 75vh;
+        min-height: 75dvh;
       }
 
-      /* Mobile: Vertical dark navy gradient protecting text while keeping excavator visible */
+      /* Mobile: Vertical dark navy gradient protecting text while keeping machinery visible */
       .hero-gradient-overlay {
         background: linear-gradient(
           180deg,
           var(--deep-navy) 0%,
-          rgba(7, 23, 43, 0.92) 42%,
-          rgba(7, 23, 43, 0.50) 70%,
-          rgba(7, 23, 43, 0.12) 88%,
+          rgba(7, 23, 43, 0.94) 45%,
+          rgba(7, 23, 43, 0.65) 72%,
+          rgba(7, 23, 43, 0.15) 90%,
           transparent 100%
         );
       }
 
       .hero-text h1 {
-        font-size: 38px;
+        font-size: clamp(32px, 7vw, 42px);
         letter-spacing: -1px;
       }
 
       .hero-tagline {
         font-size: 15px;
-        margin-bottom: 26px;
+        margin-bottom: 24px;
       }
 
       .hero-cta-group {
@@ -1113,25 +1171,176 @@
         justify-content: center;
         text-align: center;
         padding: 14px 20px;
+        min-height: 48px;
       }
 
       .services-section,
       .gallery-section,
       .quote-section {
-        padding: 40px 4%;
+        padding: 35px 4%;
       }
 
       .quote-container {
-        padding: 28px 20px;
+        padding: 26px 18px;
       }
 
       .form-row {
         grid-template-columns: 1fr;
       }
+    }
 
-      .carousel-item {
-        width: 250px;
-        height: 165px;
+    /* 5. Mobile Phones (320px - 480px) */
+    @media (max-width: 480px) {
+      .top-bar {
+        font-size: 11.5px;
+        padding: 6px 3%;
+      }
+
+      .top-bar .contact-info {
+        gap: 8px;
+      }
+
+      header {
+        padding: 10px 4%;
+      }
+
+      .logo-container img {
+        height: 34px;
+      }
+
+      .search-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+      }
+
+      .quote-nav-btn {
+        padding: 7px 12px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 40px 4% 35px 4%;
+        min-height: 70vh;
+        min-height: 70dvh;
+      }
+
+      .hero-badge {
+        font-size: 11px;
+        letter-spacing: 1px;
+        gap: 6px;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(28px, 8.5vw, 36px);
+        letter-spacing: -0.5px;
+        margin-bottom: 16px;
+      }
+
+      .hero-tagline {
+        font-size: 14px;
+        line-height: 1.55;
+        margin-bottom: 22px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .service-card {
+        padding: 18px;
+      }
+
+      .global-reach-card {
+        padding: 22px 16px;
+      }
+
+      .global-reach-card h3 {
+        font-size: 20px;
+      }
+
+      .reach-stats {
+        gap: 16px;
+      }
+
+      .stat-number {
+        font-size: 22px;
+      }
+
+      .gallery-section {
+        padding: 24px 3%;
+      }
+
+      .gallery-header h2 {
+        font-size: 18px;
+      }
+
+      .gallery-tag {
+        font-size: 10.5px;
+        padding: 3px 8px;
+      }
+
+      .quote-container {
+        padding: 22px 14px;
+        border-radius: 12px;
+      }
+
+      .quote-info h2 {
+        font-size: 24px;
+      }
+
+      .quote-form input,
+      .quote-form select,
+      .quote-form textarea {
+        font-size: 16px; /* Prevents auto-zoom on iOS */
+        padding: 12px 14px;
+      }
+
+      .btn-submit-quote {
+        padding: 14px 20px;
+        font-size: 14px;
+        min-height: 48px;
+      }
+
+      footer {
+        padding: 25px 4%;
+      }
+    }
+
+    /* 6. Landscape on Short Mobile Screens (Height <= 500px) */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero {
+        min-height: auto;
+        padding: 30px 6%;
+      }
+      .hero-text h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+      .hero-tagline {
+        font-size: 13px;
+        margin-bottom: 14px;
+      }
+      .hero-cta-group {
+        flex-direction: row;
+      }
+      .btn-explore,
+      .btn-quote-hero {
+        width: auto;
+        padding: 10px 18px;
+        font-size: 13px;
+      }
+    }
+
+    @keyframes navSlideDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
@@ -1435,7 +1644,7 @@
           "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1535091749747-88db8f2bb376?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+          "https://images.unsplash.com/photo-1530267981375-f0de937f5f13?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
         ]
       },
       { 
@@ -1446,9 +1655,9 @@
           "https://images.unsplash.com/photo-1579412690850-bd41cd0af397?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1620912189865-1e8a33e6e4b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+          "https://images.unsplash.com/photo-1584467541268-b040f83be3fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1590496793906-49d3c42fa5e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+          "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
         ]
       },
       { 
@@ -1469,12 +1678,12 @@
         slug: "food-processing-packaging-machinery",
         icon: "fa-cogs", 
         images: [
-          "https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1574757987753-3e5eb035d3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+          "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1620912189865-1e8a33e6e4b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+          "https://images.unsplash.com/photo-1581093588401-fbb62a02f120?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+          "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+          "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+          "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
         ]
       },
       { 
@@ -1497,8 +1706,8 @@
         images: [
           "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1586191582156-91b73b53d0ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1566418697392-9c55b151b354?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+          "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+          "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
         ]
@@ -1513,7 +1722,7 @@
           "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1583947215259-38e31be8751f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1581093196277-9f608bb3b5b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+          "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
         ]
       },
       { 
@@ -1565,7 +1774,7 @@
           "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
           "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-          "https://images.unsplash.com/photo-1565439396-135b2ce7308b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+          "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
         ]
       }
     ];
@@ -1579,11 +1788,12 @@
 
       categories.forEach((category) => {
         let imagesHTML = '';
+        const fallbackImg = "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80";
         category.images.forEach((imgUrl, index) => {
-          imagesHTML += `<div class="carousel-item"><img src="${imgUrl}" alt="${category.title} ${index + 1}" loading="lazy"></div>`;
+          imagesHTML += `<div class="carousel-item"><img src="${imgUrl}" alt="${category.title} ${index + 1}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImg}';"></div>`;
         });
         category.images.forEach((imgUrl, index) => {
-          imagesHTML += `<div class="carousel-item"><img src="${imgUrl}" alt="${category.title} Duplicate ${index + 1}" loading="lazy"></div>`;
+          imagesHTML += `<div class="carousel-item"><img src="${imgUrl}" alt="${category.title} Duplicate ${index + 1}" loading="lazy" onerror="this.onerror=null;this.src='${fallbackImg}';"></div>`;
         });
 
         const yellowTitles = [];
@@ -1725,11 +1935,14 @@
       }
 
       window.addEventListener("resize", resizeCanvas);
+      window.addEventListener("orientationchange", () => {
+        setTimeout(resizeCanvas, 150);
+      });
       resizeCanvas();
       updateTargetFromScroll();
       requestAnimationFrame(animate);
 
-      // Mobile nav auto-close
+      // Mobile nav auto-close on link click or clicking outside
       const navLinks = document.querySelectorAll('nav ul li a');
       const mobileNav = document.getElementById('mobile-nav');
       navLinks.forEach((link) => {
@@ -1738,6 +1951,12 @@
             mobileNav.classList.remove('active');
           }
         });
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('header') && mobileNav.classList.contains('active')) {
+          mobileNav.classList.remove('active');
+        }
       });
     })();
   </script>
