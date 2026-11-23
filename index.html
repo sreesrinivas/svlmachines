@@ -357,47 +357,47 @@
 
     /* Cinematic dark navy gradient: dark on left for text readability, 
        100% transparent on right for crystal-clear excavator visibility.
-       Mask gradient extends down to the buttons (Explore Products / Request a Quote)
-       and fades out smoothly right around the buttons, completely eliminating
-       any blue line or dark shelf across the lower machinery and floor */
+       Mask gradient solidly covers the text and buttons (Explore Products / Request a Quote)
+       and fades out smoothly right below the buttons, completely eliminating
+       any hard cutoff line across the lower machinery and floor */
     .hero-gradient-overlay {
       position: absolute;
       inset: 0;
       pointer-events: none;
       z-index: 1;
       background: radial-gradient(
-        ellipse 950px 600px at 18% 38%,
-        rgba(7, 23, 43, 0.94) 0%,
-        rgba(7, 23, 43, 0.88) 32%,
-        rgba(7, 23, 43, 0.50) 58%,
-        rgba(7, 23, 43, 0.12) 75%,
-        transparent 95%
+        ellipse 1000px 750px at 20% 45%,
+        rgba(7, 23, 43, 0.96) 0%,
+        rgba(7, 35, 68, 0.90) 38%,
+        rgba(7, 23, 43, 0.65) 65%,
+        rgba(7, 92, 203, 0.18) 82%,
+        transparent 100%
       ),
       linear-gradient(
         90deg,
-        rgba(7, 23, 43, 0.92) 0%,
-        rgba(7, 23, 43, 0.82) 26%,
-        rgba(7, 23, 43, 0.45) 45%,
-        rgba(7, 23, 43, 0.10) 62%,
-        transparent 80%
+        var(--deep-navy) 0%,
+        rgba(7, 23, 43, 0.95) 32%,
+        rgba(7, 23, 43, 0.60) 54%,
+        rgba(7, 23, 43, 0.15) 74%,
+        transparent 100%
       );
       -webkit-mask-image: linear-gradient(
         180deg,
         #000 0%,
-        #000 35%,
-        rgba(0, 0, 0, 0.85) 48%,
-        rgba(0, 0, 0, 0.40) 60%,
-        rgba(0, 0, 0, 0.10) 70%,
-        transparent 80%
+        #000 65%,
+        rgba(0, 0, 0, 0.75) 74%,
+        rgba(0, 0, 0, 0.35) 82%,
+        rgba(0, 0, 0, 0.08) 90%,
+        transparent 96%
       );
       mask-image: linear-gradient(
         180deg,
         #000 0%,
-        #000 35%,
-        rgba(0, 0, 0, 0.85) 48%,
-        rgba(0, 0, 0, 0.40) 60%,
-        rgba(0, 0, 0, 0.10) 70%,
-        transparent 80%
+        #000 65%,
+        rgba(0, 0, 0, 0.75) 74%,
+        rgba(0, 0, 0, 0.35) 82%,
+        rgba(0, 0, 0, 0.08) 90%,
+        transparent 96%
       );
     }
 
@@ -1281,61 +1281,61 @@
       <div class="services-grid">
         <div class="service-card">
           <div class="service-icon-box"><i class="fas fa-tractor"></i></div>
-          <h3>Agricultural & Farm Machinery</h3>
+          <h3 class="text-yellow">Agricultural & Farm Machinery</h3>
           <p>Tractors, combine harvesters, precision seeders, and specialized farm implements.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon-box"><i class="fas fa-trowel-bricks"></i></div>
-          <h3 class="text-yellow">Construction & Mining Machinery</h3>
+          <h3>Construction & Mining Machinery</h3>
           <p>Excavators, wheel loaders, heavy dumpers, bulldozers, and quarry crushers.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon-box"><i class="fas fa-industry"></i></div>
-          <h3 class="text-yellow">Industrial & Manufacturing Machinery</h3>
+          <h3>Industrial & Manufacturing Machinery</h3>
           <p>CNC machining centers, automated assembly lines, presses, and robotic units.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon-box"><i class="fas fa-cogs"></i></div>
-          <h3 class="text-yellow">Food Processing & Packaging</h3>
+          <h3>Food Processing & Packaging</h3>
           <p>Sanitary food lines, canning automation, sealing units, and sterile packaging.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon-box"><i class="fas fa-bolt"></i></div>
-          <h3 class="text-yellow">Electrical, Power & Generators</h3>
+          <h3>Electrical, Power & Generators</h3>
           <p>Industrial diesel power plants, high-output generators, transformers, and switchgear.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon-box"><i class="fas fa-truck"></i></div>
-          <h3 class="text-yellow">Automobile & Commercial Vehicles</h3>
+          <h3>Automobile & Commercial Vehicles</h3>
           <p>Prime movers, tipper trucks, transit concrete mixers, and heavy haulers.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon-box"><i class="fas fa-plus-square"></i></div>
-          <h3 class="text-yellow">Medical & Cleaning Equipment</h3>
+          <h3>Medical & Cleaning Equipment</h3>
           <p>Sanitization plants, cleanroom scrubbers, vacuum road sweepers, and waste washers.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon-box"><i class="fas fa-recycle"></i></div>
-          <h3 class="text-yellow">Recycling & Waste Management</h3>
+          <h3>Recycling & Waste Management</h3>
           <p>Industrial shredders, scrap metal balers, optical sorters, and bio-waste systems.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon-box"><i class="fas fa-wrench"></i></div>
-          <h3 class="text-yellow">Power Tools & Printing Machinery</h3>
+          <h3>Power Tools & Printing Machinery</h3>
           <p>Hydraulic torque tools, sheet-fed offset presses, laser cutters, and welders.</p>
         </div>
 
         <div class="service-card">
           <div class="service-icon-box"><i class="fas fa-cog"></i></div>
-          <h3>Components & Spare Parts</h3>
+          <h3 class="text-yellow">Components & Spare Parts</h3>
           <p>Hydraulic pumps, slew bearings, undercarriages, engine blocks, and seal kits.</p>
         </div>
       </div>
@@ -1634,14 +1634,8 @@
         });
 
         const yellowTitles = [
-          "Construction & Mining Machinery",
-          "Industrial & Manufacturing Machinery",
-          "Food Processing & Packaging Machinery",
-          "Electrical, Power & Generators",
-          "Automobile & Commercial Vehicles",
-          "Medical & Cleaning Equipment",
-          "Recycling & Waste Management",
-          "Power Tools & Printing Machinery"
+          "Agricultural & Farm Machinery",
+          "Components & Spare Parts"
         ];
         const isYellowTitle = yellowTitles.includes(category.title);
         const titleClass = isYellowTitle ? 'text-yellow' : '';
