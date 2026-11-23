@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVL Machines - Global Machinery Supply</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* === GLOBAL STYLES === */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        
+        html { 
+            scroll-behavior: smooth; 
+        }
+        
+        body { 
+            background-color: #f4f4f4; 
+            color: #333; 
+        }
+        
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+        }
+        
+        ul { 
+            list-style: none; 
+        }
+
+        /* === TOP BAR === */
+        .top-bar { 
+            background-color: #3498db; 
+            color: white; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 8px 5%; 
+            font-size: 14px; 
+            flex-wrap: wrap; 
+        }
+        
+        .top-bar .contact-info { 
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+        }
+        
+        .top-bar .contact-info a { 
+            transition: color 0.3s; 
+        }
+        
+        .top-bar .contact-info a:hover { 
+            color: #ffd700; 
+        }
+        
+        .top-bar .social-cart { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        
+        .top-bar .social-cart a { 
+            cursor: pointer; 
+            transition: color 0.3s; 
+        }
+        
+        .top-bar .social-cart a:hover { 
+            color: #ffd700; 
+        }
+        
+        .cart-btn { 
+            margin-left: 15px; 
+            cursor: pointer; 
+            background: rgba(255,255,255,0.2); 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            transition: background 0.3s;
+        }
+        
+        .cart-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* === HEADER === */
+        header { 
+            background-color: white; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 5%; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        
+        .logo { 
+            display: flex; 
+            align-items: center; 
+            font-size: 24px; 
+            font-weight: bold; 
+            color: #002B5B; 
+        }
+        
+        .logo img { 
+            height: 50px; 
+            width: auto; 
+        }
+        
+        .logo .fallback-logo { 
+            display: none; 
+        }
+        
+        nav ul { 
+            display: flex; 
+            gap: 25px; 
+            align-items: center; 
+            flex-wrap: nowrap; 
+        }
+        
+        nav ul li a { 
+            font-weight: bold; 
+            color: #555; 
+            font-size: 15px; 
+            transition: color 0.3s; 
+            white-space: nowrap; 
+        }
+        
+        nav ul li a:hover { 
+            color: #3498db; 
+        }
+        
+        .header-actions { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        
+        .search-icon { 
+            font-size: 18px; 
+            cursor: pointer; 
+            color: #555; 
+            transition: color 0.3s; 
+        }
+        
+        .search-icon:hover { 
+            color: #3498db; 
+        }
+        
+        .hamburger { 
+            display: none; 
+            font-size: 24px; 
+            cursor: pointer; 
+            color: #002B5B; 
+        }
+
+        /* === HERO BANNER === */
+        .hero { 
+            position: relative; 
+            width: 100%; 
+            height: 500px; 
+            background: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; 
+            display: flex; 
+            align-items: center; 
+            padding-left: 10%; 
+        }
+        
+        .hero-text h1 { 
+            font-size: 50px; 
+            color: white; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7); 
+            line-height: 1.2; 
+        }
+        
+        .hero-text h1 span { 
+            color: #ff0000; 
+        }
+
+        /* === SERVICES OVERVIEW SECTION === */
+        .services-section { 
+            display: flex; 
+            flex-wrap: wrap; 
+            margin: 40px 5%; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+        }
+        
+        .services-left { 
+            flex: 1; 
+            min-width: 300px; 
+            background-color: #002B5B; 
+            color: white; 
+            padding: 40px; 
+        }
+        
+        .services-left h2 { 
+            margin-bottom: 20px; 
+            font-size: 24px; 
+            border-bottom: 2px solid #ff0000; 
+            display: inline-block; 
+            padding-bottom: 5px; 
+        }
+        
+        .services-left ul li { 
+            margin-bottom: 15px; 
+            font-size: 16px; 
+            display: flex; 
+            align-items: center; 
+            cursor: pointer; 
+            transition: color 0.3s; 
+        }
+        
+        .services-left ul li:hover { 
+            color: #3498db; 
+        }
+        
+        .services-left ul li i { 
+            width: 30px; 
+            color: #3498db; 
+            font-size: 20px; 
+        }
+        
+        .services-right { 
+            flex: 1; 
+            min-width: 300px; 
+            background-color: #E8F4F8; 
+            padding: 40px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+        }
+        
+        .services-right h2 { 
+            color: #002B5B; 
+            font-size: 28px; 
+            margin-bottom: 20px; 
+        }
+        
+        .services-right h2 span { 
+            color: #ff0000; 
+        }
+        
+        .services-right .map-img { 
+            width: 100%; 
+            max-width: 400px; 
+            height: auto; 
+            opacity: 0.8; 
+        }
+
+        /* === DYNAMIC CAROUSEL SECTIONS === */
+        .category-section { 
+            padding: 40px 5%; 
+            background-color: white; 
+            margin: 0 5% 30px 5%; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08); 
+        }
+        
+        .category-section h2 { 
+            color: #002B5B; 
+            margin-bottom: 20px; 
+            font-size: 24px; 
+            border-left: 5px solid #ff0000; 
+            padding-left: 15px; 
+        }
+        
+        .carousel-container { 
+            overflow: hidden; 
+            position: relative; 
+            width: 100%; 
+            border-radius: 8px; 
+            padding: 10px 0; 
+        }
+        
+        .carousel-track { 
+            display: flex; 
+            gap: 20px; 
+            width: max-content; 
+            animation: scrollLeft 30s linear infinite; 
+        }
+        
+        /* Pause scrolling when hovering over the images */
+        .carousel-track:hover { 
+            animation-play-state: paused; 
+        }
+        
+        .carousel-item { 
+            width: 300px; 
+            height: 200px; 
+            flex-shrink: 0; 
+            border-radius: 8px; 
+            overflow: hidden; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
+            cursor: pointer; 
+            background-color: #eee; 
+        }
+        
+        .carousel-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.4s ease; 
+        }
+        
+        .carousel-item:hover img { 
+            transform: scale(1.1); 
+        }
+        
+        /* Infinite Scroll Animation */
+        @keyframes scrollLeft { 
+            0% { transform: translateX(0); } 
+            100% { transform: translateX(calc(-320px * 6)); } /* 300px width + 20px gap * 6 unique images */
+        }
+
+        /* === FOOTER === */
+        footer { 
+            background-color: #002B5B; 
+            color: white; 
+            text-align: center; 
+            padding: 20px; 
+            margin-top: 40px; 
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 1024px) {
+            nav { 
+                display: none; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background-color: white; 
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1); 
+                padding: 20px; 
+            }
+            nav.active { 
+                display: block; 
+            }
+            nav ul { 
+                flex-direction: column; 
+                gap: 15px; 
+                align-items: flex-start; 
+            }
+            .hamburger { 
+                display: block; 
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-bar { 
+                flex-direction: column; 
+                gap: 10px; 
+                text-align: center; 
+            }
+            .top-bar .contact-info { 
+                justify-content: center; 
+            }
+            .hero-text h1 { 
+                font-size: 32px; 
+            }
+            .services-section { 
+                flex-direction: column; 
+            }
+            .category-section {
+                margin: 0 2% 20px 2%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="contact-info">
+            <a href="tel:8618548652"><i class="fas fa-phone"></i> 8618548652</a>
+            <a href="mailto:svlmachines2226@gmail.com"><i class="fas fa-envelope"></i> svlmachines2226@gmail.com</a>
+        </div>
+        <div class="social-cart">
+            <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" title="Google Plus"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" title="RSS"><i class="fas fa-rss"></i></a>
+            <span class="cart-btn" onclick="alert('Your cart is currently empty.')"><i class="fas fa-shopping-cart"></i> 0 Items</span>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <!-- The onerror ensures that if you don't have a logo.png, it shows text instead -->
+            <img src="logo.png" alt="SVL Machines Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <span class="fallback-logo" style="display:none; color:#002B5B;">SVL <span style="color:#3498db">Machines</span></span>
+        </div>
+        <div class="hamburger" onclick="document.getElementById('mobile-nav').classList.toggle('active')"><i class="fas fa-bars"></i></div>
+        <nav id="mobile-nav">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#agricultural-farm-machinery">Products</a></li>
+                <li><a href="#spare-parts-components-accessories">Spare Parts</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#quote">Request a Quote</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <div class="search-icon" onclick="alert('Search functionality coming soon!')"><i class="fas fa-search"></i></div>
+        </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>MOVING<br>TOMORROW,<br><span>TODAY</span></h1>
+        </div>
+    </section>
+
+    <!-- SERVICES OVERVIEW SECTION -->
+    <section class="services-section" id="about">
+        <div class="services-left">
+            <h2>OUR PRODUCTS & SERVICES</h2>
+            <ul>
+                <li><i class="fas fa-tractor"></i> Agricultural & Farm Machinery</li>
+                <li><i class="fas fa-digging"></i> Construction & Mining Machinery</li>
+                <li><i class="fas fa-industry"></i> Industrial & Manufacturing Machinery</li>
+                <li><i class="fas fa-cogs"></i> Food Processing & Packaging Machinery</li>
+                <li><i class="fas fa-bolt"></i> Electrical, Power & Generators</li>
+                <li><i class="fas fa-truck"></i> Automobile & Commercial Vehicles</li>
+                <li><i class="fas fa-plus-square"></i> Medical & Cleaning Equipment</li>
+                <li><i class="fas fa-recycle"></i> Recycling & Waste Management</li>
+                <li><i class="fas fa-wrench"></i> Power Tools & Printing Machinery</li>
+                <li><i class="fas fa-cog"></i> Spare Parts, Components & Accessories</li>
+            </ul>
+        </div>
+        <div class="services-right">
+            <h2>Quality Machines<br>Reliable Supply<br><span>Global Reach</span></h2>
+            <img class="map-img" src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Map">
+        </div>
+    </section>
+
+    <!-- DYNAMIC CATEGORY CAROUSELS INJECTED HERE BY JAVASCRIPT -->
+    <div id="dynamic-categories-container"></div>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <p>&copy; 2024 SVL Machines. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT: BUILDS THE 10 SECTIONS AND IMAGES -->
+    <script>
+        // Data structure defining the 10 sections and real image URLs for each
+        const categories = [
+            { 
+                title: "Agricultural & Farm Machinery", 
+                icon: "fa-tractor", 
+                images: [
+                    "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1563514227147-6d2ff665a6a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1535091749747-88db8f2bb376?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                title: "Construction & Mining Machinery", 
+                icon: "fa-digging", 
+                images: [
+                    "https://images.unsplash.com/photo-1579412690850-bd41cd0af397?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1620912189865-1e8a33e6e4b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1590496793906-49d3c42fa5e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                title: "Industrial & Manufacturing Machinery", 
+                icon: "fa-industry", 
+                images: [
+                    "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                title: "Food Processing & Packaging Machinery", 
+                icon: "fa-cogs", 
+                images: [
+                    "https://images.unsplash.com/photo-1589923188900-85dae523342b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1574757987753-3e5eb035d3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1620912189865-1e8a33e6e4b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                title: "Electrical, Power & Generators", 
+                icon: "fa-bolt", 
+                images: [
+                    "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1558449028-b53a39d100fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                title: "Automobile & Commercial Vehicles", 
+                icon: "fa-truck", 
+                images: [
+                    "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1519003722824-194d4455a60c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1586191582156-91b73b53d0ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1566418697392-9c55b151b354?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1592838064575-70ed626d3a0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                title: "Medical & Cleaning Equipment", 
+                icon: "fa-plus-square", 
+                images: [
+                    "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1582719508461-905c673771fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1583947215259-38e31be8751f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1581093196277-9f608bb3b5b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                title: "Recycling & Waste Management", 
+                icon: "fa-recycle", 
+                images: [
+                    "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1581092160607-ee22621dd758?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                title: "Power Tools & Printing Machinery", 
+                icon: "fa-wrench", 
+                images: [
+                    "https://images.unsplash.com/photo-1504148455328-c376907d081c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1565514020179-026b92b84bb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            },
+            { 
+                title: "Spare Parts, Components & Accessories", 
+                icon: "fa-cog", 
+                images: [
+                    "https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+                    "https://images.unsplash.com/photo-1565439396-135b2ce7308b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                ]
+            }
+        ];
+
+        // Function to build and inject the HTML for all 10 sections
+        function buildSections() {
+            const container = document.getElementById('dynamic-categories-container');
+            let htmlContent = '';
+
+            categories.forEach(category => {
+                // Generate the images HTML. We duplicate the 6 images to make the infinite scroll seamless.
+                let imagesHTML = '';
+                
+                // First set of 6 images
+                category.images.forEach((imgUrl, index) => {
+                    imagesHTML += `<div class="carousel-item"><img src="${imgUrl}" alt="${category.title} ${index + 1}" loading="lazy"></div>`;
+                });
+                
+                // Duplicate set of 6 images for seamless looping
+                category.images.forEach((imgUrl, index) => {
+                    imagesHTML += `<div class="carousel-item"><img src="${imgUrl}" alt="${category.title} Duplicate ${index + 1}" loading="lazy"></div>`;
+                });
+
+                // Create a safe ID for the anchor link (e.g., "Agricultural & Farm Machinery" -> "agricultural-farm-machinery")
+                const sectionId = category.title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+
+                // Build the section HTML
+                htmlContent += `
+                    <section class="category-section" id="${sectionId}">
+                        <h2><i class="fas ${category.icon}" style="margin-right: 10px; color: #3498db;"></i>${category.title}</h2>
+                        <div class="carousel-container">
+                            <div class="carousel-track">
+                                ${imagesHTML}
+                            </div>
+                        </div>
+                    </section>
+                `;
+            });
+
+            // Inject into the DOM
+            container.innerHTML = htmlContent;
+        }
+
+        // Run the function when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            buildSections();
+
+            // Close mobile menu when a link is clicked
+            const navLinks = document.querySelectorAll('nav ul li a');
+            const mobileNav = document.getElementById('mobile-nav');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileNav.classList.contains('active')) {
+                        mobileNav.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
